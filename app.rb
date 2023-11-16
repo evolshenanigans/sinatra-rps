@@ -13,11 +13,11 @@ def determine_winner(player_choice, computer_choice)
   }
 
   if player_choice == computer_choice
-    'It\'s a tie!'
+    'We tied!'
   elsif outcomes[player_choice] == computer_choice
-    'You win!'
+    'We won!'
   else
-    'You lose!'
+    'We lose!'
   end
 end
 
@@ -38,19 +38,25 @@ get "/rock" do
   computer_choice = choose_rps
   outcome = determine_winner(player_choice, computer_choice)
 
-  erb :rock, locals: { player_choice: player_choice, computer_choice: computer_choice, outcome: outcome }
+  erb :rock, locals: { player_choice: "We played #{player_choice}!", 
+                       computer_choice: "They played #{computer_choice}!", 
+                       outcome: outcome }
 end
 get "/paper" do
   player_choice = 'paper'
   computer_choice = choose_rps
   outcome = determine_winner(player_choice, computer_choice)
 
-  erb :paper, locals: { player_choice: player_choice, computer_choice: computer_choice, outcome: outcome }
+  erb :paper, locals: { player_choice: "We played #{player_choice}!", 
+  computer_choice: "They played #{computer_choice}!", 
+  outcome: outcome }
 end
 get "/scissors" do
   player_choice = 'scissors'
   computer_choice = choose_rps
   outcome = determine_winner(player_choice, computer_choice)
 
-  erb :scissors, locals: { player_choice: player_choice, computer_choice: computer_choice, outcome: outcome }
+  erb :scissors, locals: { player_choice: "We played #{player_choice}!", 
+  computer_choice: "They played #{computer_choice}!", 
+  outcome: outcome }
 end
